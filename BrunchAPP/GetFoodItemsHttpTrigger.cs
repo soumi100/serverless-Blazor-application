@@ -14,7 +14,7 @@ namespace BrunchAPP
     public static class GetFoodItemsHttpTrigger
     {
         [Function("GetFoodItems")]
-        public static HttpResponseData GetFoodItems([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req,
+        public static HttpResponseData GetFoodItems([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fooditem")] HttpRequestData req,
             FunctionContext executionContext)
         {
             var response = req.CreateResponse(HttpStatusCode.OK);
