@@ -1,0 +1,113 @@
+﻿@page "/fooditemlist"
+@using System.Text.Json
+@using Models
+@using System.Text
+@using System.Net.Mime
+
+<h3>fooditemlist</h3>
+<p>@DisplayMessage</p>
+
+<label>Your Name?</label>
+<input @bind="FoodItemName" />
+<br />
+<label>What are you Bringing?</label>
+<input @bind="FoodItemPerson" />
+<br />
+<label>Vegetarian?</label>
+<input type="checkbox" @bind="FoodItemVegetarian">
+<br />
+<label>Gluten Free?</label>
+<input type="checkbox" @bind="FoodItemGlutenFree">
+<br />
+<button type="submit" @onclick="@AddFoodItem">Add Food Item</button>
+
+@if (_foodItems != null)
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Person</th>
+                <th scope="col">Gluten Free?</th>
+                <th scope="col">Vegetarian?</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fooditem in _foodItems)
+            {
+                <tr>
+                    <td>@fooditem.Name</td>
+                    <td>@fooditem.Person</td>
+                    <td>@fooditem.Glutenfree</td>
+                    <td>@fooditem.Vegetarian</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    DisplayMessage = "Hello!";
+}
+@code {
+    public string DisplayMessage { get; set; }
+    public FoodItem[] _foodItems { get; set; }
+
+    public string FoodItemName { get; set; }
+    public string FoodItemPerson { get; set; }
+    public bool FoodItemVegetarian { get; set; }
+    public bool FoodItemGlutenFree { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        DisplayMessage = "hello!";
+        await PopulateTable();
+    }
+
+    private async Task PopulateTable()
+    {
+
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://branchapp2021.azurewebsites.net/api/fooditem/") };
+
+        HttpResponseMessage response = null;
+
+        response = await client.GetAsync(client.BaseAddress);
+
+        if (response.Content is object && response.Content.Headers.ContentType.MediaType == "application/json")
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            _foodItems = JsonSerializer.Deserialize<FoodItem[]>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+    }
+
+    private async Task AddFoodItem()
+    {
+
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://branchapp2021.azurewebsites.net/api/fooditem/") };
+
+        HttpResponseMessage response = null;
+
+        var payload = new FoodItem()
+        {
+            Name = FoodItemName,
+            Person = FoodItemPerson,
+            Vegetarian = FoodItemVegetarian,
+            Glutenfree = FoodItemGlutenFree
+        };
+
+        var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+
+        response = await client.PostAsync(client.BaseAddress, payloadString);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await PopulateTable();
+            DisplayMessage = "added!";
+        }
+        else
+        {
+            DisplayMessage = response.StatusCode.ToString() + "\n" + client.BaseAddress.ToString();
+        }
+    }
+}

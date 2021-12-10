@@ -83,7 +83,7 @@ using BrunchUIBlazor.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\Shared\NavMenu.razor"
+#line 23 "C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
