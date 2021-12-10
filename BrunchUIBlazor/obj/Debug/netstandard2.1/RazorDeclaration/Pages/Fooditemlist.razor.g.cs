@@ -112,7 +112,7 @@ using System.Net.Mime;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\Pages\Fooditemlist.razor"
+#line 55 "C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\Pages\Fooditemlist.razor"
        
     public string DisplayMessage { get; set; }
     public FoodItem[] _foodItems { get; set; }
@@ -172,6 +172,22 @@ using System.Net.Mime;
         {
             DisplayMessage = response.StatusCode.ToString() + "\n" + client.BaseAddress.ToString();
         }
+    }
+
+    private async Task DeleteFoodItem(string id)
+    {
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://branchapp2021.azurewebsites.net/api/fooditem/" + id) };
+
+        HttpResponseMessage response = null;
+
+        response = await client.DeleteAsync(client.BaseAddress);
+
+        if (response.IsSuccessStatusCode)
+        {
+            DisplayMessage = "We deleted: " + id;
+        }
+
+        await PopulateTable();
     }
 
 #line default

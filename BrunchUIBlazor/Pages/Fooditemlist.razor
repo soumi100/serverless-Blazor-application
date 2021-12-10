@@ -31,6 +31,7 @@
                 <th scope="col">Person</th>
                 <th scope="col">Gluten Free?</th>
                 <th scope="col">Vegetarian?</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +42,7 @@
                     <td>@fooditem.Person</td>
                     <td>@fooditem.Glutenfree</td>
                     <td>@fooditem.Vegetarian</td>
+                    <td><button @onclick="@(() => DeleteFoodItem(@fooditem.ID))">DELETE</button></td>
                 </tr>
             }
         </tbody>
@@ -109,5 +111,21 @@ else
         {
             DisplayMessage = response.StatusCode.ToString() + "\n" + client.BaseAddress.ToString();
         }
+    }
+
+    private async Task DeleteFoodItem(string id)
+    {
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://branchapp2021.azurewebsites.net/api/fooditem/" + id) };
+
+        HttpResponseMessage response = null;
+
+        response = await client.DeleteAsync(client.BaseAddress);
+
+        if (response.IsSuccessStatusCode)
+        {
+            DisplayMessage = "We deleted: " + id;
+        }
+
+        await PopulateTable();
     }
 }

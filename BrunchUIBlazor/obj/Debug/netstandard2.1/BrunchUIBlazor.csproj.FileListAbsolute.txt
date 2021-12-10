@@ -354,6 +354,6 @@ C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netsta
 C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\BrunchUIBlazor.dll
 C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\BrunchUIBlazor.pdb
 C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\BrunchUIBlazor.csproj.AssemblyReference.cache
-C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\integrity\N98eqXaATyh7N65WuldjknXZ0WeTotDyLzOWUcDI2Ys=.hash
-C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\integrity\jDLQkUM3xw_N6T72KMfUfOIvWDruffKByinoQZnwFEY=.hash
-C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\integrity\1H6bl9AZKu2RrkmTzjgplc5A5z2YwoAo3QetcEhh92Y=.hash
+C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\integrity\88oKhmmSfcFrK28Arc5dMi6KbURVaXzl4XfFoJe6qQs=.hash
+C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\integrity\FVORK7WYouod-BWFOQdQ9Kn_rx6qvOyAX5UAl7KKDRk=.hash
+C:\Github Projects\serverless-Blazor-application\BrunchUIBlazor\obj\Debug\netstandard2.1\integrity\8e8cN5GHOCgSCgun4m5DhEcvKl1mnioECfqhlcV9QIE=.hash

@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "BrunchUIBlazor.dll": "sha256-N98eqXaATyh7N65WuldjknXZ0WeTotDyLzOWUcDI2Ys=",
+      "BrunchUIBlazor.dll": "sha256-88oKhmmSfcFrK28Arc5dMi6KbURVaXzl4XfFoJe6qQs=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -59,7 +59,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "BrunchUIBlazor.pdb": "sha256-jDLQkUM3xw+N6T72KMfUfOIvWDruffKByinoQZnwFEY="
+      "BrunchUIBlazor.pdb": "sha256-FVORK7WYouod\/BWFOQdQ9Kn+rx6qvOyAX5UAl7KKDRk="
     },
     "runtime": {
       "dotnet.3.2.0.js": "sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=",
