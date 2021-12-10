@@ -147,7 +147,7 @@ using System.Net.Mime;
     private async Task AddFoodItem()
     {
 
-        HttpClient client = new HttpClient { BaseAddress = new Uri("[Your Azure Function URL]") };
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://branchapp2021.azurewebsites.net/api/fooditem") };
 
         HttpResponseMessage response = null;
 
